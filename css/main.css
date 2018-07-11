@@ -1,3 +1,7 @@
+body {
+  text-align: center;
+}
+
 .list {
   padding: 40px;
   list-style: none;
@@ -12,7 +16,7 @@
 }
 
 .list2 {
-  background-color: red;
+  background-color: #F28CFA;
 }
 
 .grid-container-results {
@@ -20,6 +24,11 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
+}
+
+.title {
+  text-align: center;
+  font-family: arial, sans-serif;
 }
 
 /*# sourceMappingURL=main.css.map */
