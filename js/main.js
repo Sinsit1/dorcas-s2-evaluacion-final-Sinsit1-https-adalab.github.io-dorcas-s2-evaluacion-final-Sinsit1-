@@ -11,10 +11,11 @@ function favorites(event) {
   var targetElement = event.currentTarget;
   if (targetElement.classList.contains('list2')) {
     targetElement.classList.remove('list2');
-  }else {
+  } else {
     targetElement.classList.add('list2');
   }
 }
+
 function searchShow() {
   list.innerHTML = ''; // reseteo la busqueda
   var search = searchHolder.value;
@@ -36,6 +37,7 @@ function searchShow() {
 
         var img = document.createElement('img');
         var h2 = document.createElement('h2');
+        h2.classList.add ('items-title');
 
         h2.innerHTML = result[i].show.name;
 
@@ -46,7 +48,7 @@ function searchShow() {
         }
 
         list.appendChild(element);
-        list.classList.add ('grid-container-results');
+        list.classList.add('grid-container-results');
         element.appendChild(img);
         element.appendChild(h2);
 
@@ -54,5 +56,12 @@ function searchShow() {
       }
     });
 }
+
+//principio de código para capturar ENTER
+// searchHolder.addEventListener('onkeydown', function (e) {
+//   if (e.keyCode === 13) {
+//     buttonSearch.click();
+//   }
+// });
 
 buttonSearch.addEventListener('click', searchShow);
