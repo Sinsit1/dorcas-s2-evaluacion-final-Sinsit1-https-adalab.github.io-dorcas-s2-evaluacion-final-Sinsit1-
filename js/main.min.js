@@ -20,26 +20,29 @@ function searchShow() {
 
       for (var i = 0; i < result.length; i++) {
         var element = document.createElement('li');
+        element.addEventListener('click', favorites);
         var img = document.createElement('img');
         var h2 = document.createElement('h2');
 
-        h2.innerHTML = 'Name: ' + result[i].show.name;
-
-
-
-        if (result[i].show.image.medium===true){
-          console.log ('tomaya');
-        } else {
-          console.log('ni de coña');
-        }
-
-        // img.setAttribute('src', result[i].show.image.medium);
-
+        h2.innerHTML = result[i].show.name;
         list.appendChild(element);
-        element.appendChild(h2);
         element.appendChild(img);
+        element.appendChild(h2);
+
+        if (result[i].show.image===null){
+          img.setAttribute('src', 'https://via.placeholder.com/210x295/cccccc/666666/?text=TV');
+        } else {
+          img.setAttribute('src', result[i].show.image.medium);
+        }
       }
     });
+}
+
+function favorites (event) {
+
+console.log('hola que tal');
+
+
 }
 
 buttonSearch.addEventListener('click', searchShow);
