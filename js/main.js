@@ -1,5 +1,21 @@
 'use strict';
 
+// function favorites() {
+//   // element.classList.remove('list');
+//   // element.classList.add('list2');
+//   // console.log ('holi');
+
+//   var listOfList = document.querySelectorAll('.list');
+
+//   for (var i = 0; i < listOfList.length; i++) {
+//     var currentList = listOfList[i];
+
+//     if (currentSelect.value !== optionAsPlaceholderText) {
+//       tagsContainer.innerHTML += '<li class="etiqueta-habilidad">' + currentSelect.value + '</li>';
+//     }
+//   }
+
+
 var buttonSearch = document.querySelector('.buttonSearch');
 var searchHolder = document.getElementById('buscador');
 var results = document.querySelector('.grid-container-results');
@@ -20,29 +36,27 @@ function searchShow() {
 
       for (var i = 0; i < result.length; i++) {
         var element = document.createElement('li');
-        element.addEventListener('click', favorites);
         var img = document.createElement('img');
         var h2 = document.createElement('h2');
 
-        h2.innerHTML = result[i].show.name;
-        list.appendChild(element);
-        element.appendChild(img);
-        element.appendChild(h2);
+        h2.innerHTML = 'Name: ' + result[i].show.name;
+
+
 
         if (result[i].show.image===null){
           img.setAttribute('src', 'https://via.placeholder.com/210x295/cccccc/666666/?text=TV');
         } else {
           img.setAttribute('src', result[i].show.image.medium);
         }
+
+
+
+        list.appendChild(element);
+        element.appendChild(h2);
+        element.appendChild(img);
       }
     });
 }
 
-function favorites (event) {
-
-console.log('hola que tal');
-
-
-}
-
 buttonSearch.addEventListener('click', searchShow);
+
