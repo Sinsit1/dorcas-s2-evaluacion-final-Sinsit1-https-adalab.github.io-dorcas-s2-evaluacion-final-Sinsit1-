@@ -1,24 +1,26 @@
 'use strict';
 
+var body = document.querySelector('body');
 var buttonSearch = document.querySelector('.buttonSearch');
 var searchHolder = document.getElementById('buscador');
-var results = document.querySelector('.grid-container-results');
 var element;
+var list = document.createElement('ul');
 
 
 function favorites(event) {
-  console.log('holi');
   var targetElement = event.currentTarget;
-  targetElement.classList.add('list2');
+  if (targetElement.classList.contains('list2')) {
+    targetElement.classList.remove('list2');
+  }else {
+    targetElement.classList.add('list2');
+  }
 }
-
-
 function searchShow() {
-  results.innerHTML = ''; // reseteo la busqueda
+  list.innerHTML = ''; // reseteo la busqueda
   var search = searchHolder.value;
-  var list = document.createElement('ul');
+  list = document.createElement('ul');
 
-  results.appendChild(list);
+  body.appendChild(list);
 
   fetch('http://api.tvmaze.com/search/shows?q=' + search)
     .then(function (response) {
@@ -44,6 +46,7 @@ function searchShow() {
         }
 
         list.appendChild(element);
+        list.classList.add ('grid-container-results');
         element.appendChild(img);
         element.appendChild(h2);
 

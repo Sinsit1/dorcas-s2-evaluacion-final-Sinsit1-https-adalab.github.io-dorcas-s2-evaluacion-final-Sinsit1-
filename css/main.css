@@ -1,11 +1,16 @@
 .list {
   height: 350px;
   padding: 30px;
-  background-color: red;
 }
 
 .list2 {
-  background-color: white;
+  height: 350px;
+  padding: 30px;
+  background-color: red;
+}
+
+.grid-container-results {
+  display: grid;
 }
 
 /*# sourceMappingURL=main.css.map */
