@@ -63,7 +63,9 @@ body {
 }
 
 .items-title {
+  padding-top: 10px;
   color: crimson;
+  font-weight: 800;
 }
 
 /*# sourceMappingURL=main.css.map */
