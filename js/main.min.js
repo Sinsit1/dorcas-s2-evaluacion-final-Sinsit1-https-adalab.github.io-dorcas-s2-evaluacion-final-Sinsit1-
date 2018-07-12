@@ -7,8 +7,6 @@ var element;
 var list = document.createElement('ul');
 var h2;
 var result;
-var noResults;
-var search;
 
 function favorites(event) {
   var targetElement = event.currentTarget;
@@ -23,7 +21,7 @@ function favorites(event) {
 
 function searchShow() {
   list.innerHTML = ''; // reseteo la busqueda
-  search = searchHolder.value;
+  var search = searchHolder.value;
   list = document.createElement('ul');
 
   body.appendChild(list);
@@ -38,13 +36,12 @@ function searchShow() {
 
       //controlo que si no existen resultados me avise
       if (result.length === 0) {
-        noResults = document.createElement('h2');
-        noResults.classList.add ('clase-h2');
-        noResults.innerHTML = 'No existen resultados para su búsqueda';
+        var noResults= document.createElement('h2');
+        noResults.innerHTML='No existen resultados para su búsqueda';
         body.appendChild(noResults);
 
       } else { //si hay resultados....
-        noResults.innerHTML = '';
+
         for (var i = 0; i < result.length; i++) {
           element = document.createElement('li');
           element.classList.add('list');
