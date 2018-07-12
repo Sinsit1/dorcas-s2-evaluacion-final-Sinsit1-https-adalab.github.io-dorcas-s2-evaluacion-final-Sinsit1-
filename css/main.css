@@ -50,7 +50,7 @@ body {
 
 #buscador {
   border: none;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid grey;
   width: 350px;
   font-size: 15px;
   margin: 40px 0;
@@ -66,6 +66,10 @@ body {
   padding-top: 10px;
   color: crimson;
   font-weight: 800;
+}
+
+.tele {
+  height: 30px;
 }
 
 /*# sourceMappingURL=main.css.map */
