@@ -1,4 +1,4 @@
-(images/television-icon-21.svg)
+
 # BIENVENIDA AL BUSCADOR DE SERIES
 
 
