@@ -1,17 +1,17 @@
 'use strict';
 
-var body = document.querySelector('body');
 var buttonSearch = document.querySelector('.buttonSearch');
 var container = document.querySelector('.container');
 var searchHolder = document.getElementById('buscador');
-var element;
 var list = document.createElement('ul');
+var element;
 var h2;
 var result;
 var noResults;
 
 function favorites(event) {
   var targetElement = event.currentTarget;
+
   if (targetElement.classList.contains('list2')) {
     targetElement.classList.remove('list2');
   } else {
@@ -22,11 +22,8 @@ function favorites(event) {
 function searchShow() {
   list.innerHTML = ''; // reseteo la busqueda
   var search = searchHolder.value;
-  list = document.createElement('ul');
 
-
-
-  fetch('http://api.tvmaze.com/search/shows?q=' + search)
+  fetch('http://api.tvmaze.com/search/people?q=' + search)
     .then(function (response) {
       return response.json();
     })
@@ -36,13 +33,16 @@ function searchShow() {
 
       //controlo que si no existen resultados me avise
       if (result.length === 0) {
-        container.innerHTML='';
-        noResults= document.createElement('h2');
-        noResults.innerHTML='No existen resultados para su búsqueda';
+        container.innerHTML = '';
+        noResults = document.createElement('h2');
+        noResults.innerHTML = 'No existen resultados para su búsqueda';
         container.appendChild(noResults);
 
       } else { //si hay resultados....
-        container.innerHTML='';
+        container.innerHTML = '';
+        var numero = document.createElement('p');
+        container.appendChild(numero);
+        numero.innerHTML= 'Se han encontrado '+result.length+' resultados para la busqueda de '+ searchHolder.value;
         container.appendChild(list);
         for (var i = 0; i < result.length; i++) {
           element = document.createElement('li');
@@ -53,13 +53,13 @@ function searchShow() {
           h2 = document.createElement('a');
           h2.classList.add('items-title');
 
-          h2.innerHTML = result[i].show.name;
-          h2.setAttribute('src', result[i].show.url);
+          h2.innerHTML = result[i].person.name;
+          // h2.setAttribute('src', result[i].show.url);
 
-          if (result[i].show.image === null) {
+          if (result[i].person.image === null) {
             img.setAttribute('src', 'https://via.placeholder.com/210x295/cccccc/666666/?text=TV');
           } else {
-            img.setAttribute('src', result[i].show.image.medium);
+            img.setAttribute('src', result[i].person.image.medium);
           }
 
           list.appendChild(element);
@@ -71,7 +71,7 @@ function searchShow() {
     });
 }
 
-// principio de código para capturar ENTER
+// código para capturar ENTER
 searchHolder.addEventListener('keyup', function (e) {
   if (e.keyCode === 13) {
     searchShow();
